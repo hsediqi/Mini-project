@@ -1,4 +1,4 @@
-<?php 
+<?php
 	session_start();
 
 	// connect to database
@@ -210,7 +210,7 @@
 		// register user if there are no errors in the form
 		if (count($errors) == 0) {
 				$password = md5($password_1);//encrypt the password before saving in the database
-				$query = "UPDATE users SET username='$usernamea', email='$email', dob='$dob',
+				$query = "UPDATE users SET username='$usernamea', email='$email', dob='$dob', password='$password'
 				          WHERE username ='$username'";
 				mysqli_query($db, $query);
 				$querya = "SELECT * FROM users WHERE username='$usernamea' AND password='$password' LIMIT 1";
@@ -307,7 +307,7 @@
 							<a class="dropdown-item" href="dashboard.html">Account Settings</a>
 							<a class="dropdown-item" href="#">WishList</a>
 							<a class="dropdown-item" href=login.html?logout="1"" style="color: red;">logout</a>
-							</div>';
+						</div>';
 		}
 	}
 
