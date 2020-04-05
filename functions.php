@@ -162,6 +162,7 @@
 
 	function update(){
 		global $db, $errors, $username;
+		$username=$_SESSION['user']['username'];
 
 		// receive all input values from the form
 		$usernamea   =  e($_POST['username']);
@@ -220,9 +221,8 @@
 				$logged_in_user_id = mysqli_insert_id($db);
 
 				$_SESSION['user'] = getUserById($logged_in_user_id); // put logged in user in session
-				$username=$usernamea;
-					$_SESSION['success'] = "You are Details are now Updated";
-					header('location: dashboard.html');
+				$_SESSION['success'] = "You are Details are now Updated";
+				header('location: dashboard.html');
 				}
 
 	}
